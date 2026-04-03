@@ -1,63 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // 1. Manejo del Navbar al hacer Scroll
+    // Navbar y Botón Volver Arriba
     const navbar = document.getElementById('navbar');
     const backToTop = document.getElementById('backToTop');
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
-            if(backToTop) backToTop.style.display = 'flex';
+            backToTop.style.display = 'flex';
         } else {
             navbar.classList.remove('scrolled');
-            if(backToTop) backToTop.style.display = 'none';
+            backToTop.style.display = 'none';
         }
         reveal();
     });
 
-    // 2. Función Reveal (Aparición al hacer scroll)
+    // Menú Móvil
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('nav-menu');
+    burger.addEventListener('click', () => navMenu.classList.toggle('active'));
+
+    // Animación de aparición (Reveal)
     function reveal() {
         const reveals = document.querySelectorAll(".reveal");
         reveals.forEach(el => {
             const windowHeight = window.innerHeight;
             const elementTop = el.getBoundingClientRect().top;
-            const elementVisible = 100;
-            if (elementTop < windowHeight - elementVisible) {
-                el.classList.add("active");
-            }
+            if (elementTop < windowHeight - 100) el.classList.add("active");
         });
     }
-
-    // Ejecutar reveal una vez al cargar por si hay elementos visibles
     reveal();
 
-    // 3. Menú Móvil Simple
-    const burger = document.getElementById('burger');
-    const navMenu = document.getElementById('nav-menu');
+    // Slider de Testimonios
+    const track = document.getElementById('track');
+    let index = 0;
+    setInterval(() => {
+        index = (index + 1) % 2; // Ajustar según número de testimonios
+        if(track) track.style.transform = `translateX(-${index * 100}%)`;
+    }, 5000);
 
-    if(burger) {
-        burger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            // Estilo rápido para el menú activo
-            if(navMenu.classList.contains('active')) {
-                navMenu.style.display = 'flex';
-                navMenu.style.flexDirection = 'column';
-                navMenu.style.position = 'absolute';
-                navMenu.style.top = '100%';
-                navMenu.style.left = '0';
-                navMenu.style.width = '100%';
-                navMenu.style.background = 'white';
-                navMenu.style.padding = '20px';
-            } else {
-                navMenu.style.display = 'none';
-            }
-        });
-    }
+    // Formulario
+    const form = document.getElementById('appointmentForm');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        btn.innerText = 'Enviando...';
+        setTimeout(() => {
+            form.reset();
+            form.style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        }, 1500);
+    });
 
-    // 4. Botón Volver Arriba
-    if(backToTop) {
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    }
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 });
