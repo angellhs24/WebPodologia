@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Podología Profesional | Salud para tus Pies</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Podología Profesional - Especialistas en salud podológica.">
+    <title>Podología Profesional | Salud y Bienestar</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,6 +19,7 @@
                     <li class="animate-in"><a href="#hero">Inicio</a></li>
                     <li class="animate-in"><a href="#servicios">Servicios</a></li>
                     <li class="animate-in"><a href="#nosotros">Nosotros</a></li>
+                    <li class="animate-in"><a href="#testimonios">Testimonios</a></li>
                     <li class="animate-in"><a href="#contacto" class="btn btn-primary">Agendar Cita</a></li>
                 </ul>
                 <div class="burger" id="burger">
@@ -30,7 +32,7 @@
     <section id="hero">
         <div class="hero-content container">
             <h1 class="animate-in">Salud y bienestar en cada paso</h1>
-            <p class="animate-in">Especialistas en el cuidado integral de tus pies con la tecnología más avanzada y un trato humano excepcional.</p>
+            <p class="animate-in">Especialistas en el cuidado integral de tus pies con la tecnología más avanzada.</p>
             <div class="hero-btns animate-in">
                 <a href="#contacto" class="btn btn-primary">Reservar Cita</a>
                 <a href="#servicios" class="btn btn-outline-white">Conocer Servicios</a>
@@ -38,24 +40,119 @@
         </div>
     </section>
 
-    <section id="servicios" class="section-padding">
+    <section id="nosotros" class="section-padding reveal">
         <div class="container">
-            <h2 class="section-title reveal">Nuestros Servicios</h2>
+            <div class="contact-wrapper" style="align-items: center;">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80" alt="Consultorio" class="about-img">
+                </div>
+                <div>
+                    <h2 class="section-title" style="text-align: left;">Cuidamos tu caminar desde hace más de 15 años</h2>
+                    <p>En Podología Profesional, entendemos que tus pies son el motor de tu día a día. Combinamos experiencia clínica con un enfoque cálido.</p>
+                    <br>
+                    <p><strong>+15 Años de experiencia</strong> garantizando la salud de miles de pacientes.</p>
+                    <br>
+                    <a href="#" class="btn btn-outline">Leer más</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="section-padding reveal" style="background: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
             <div class="services-grid">
-                <div class="service-card reveal">
+                <div class="service-card">
                     <i class="fas fa-foot"></i>
                     <h3>Quiropodía</h3>
                     <p>Tratamiento experto de uñas encarnadas y callosidades.</p>
                 </div>
-                <div class="service-card reveal">
+                <div class="service-card">
                     <i class="fas fa-running"></i>
                     <h3>Deportiva</h3>
-                    <p>Estudio de la pisada y plantillas personalizadas.</p>
+                    <p>Estudio biomecánico de la pisada y plantillas.</p>
                 </div>
-                <div class="service-card reveal">
+                <div class="service-card">
                     <i class="fas fa-magic"></i>
                     <h3>Láser</h3>
-                    <p>Eliminación de hongos con tecnología avanzada.</p>
+                    <p>Tecnología avanzada para la eliminación de hongos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding reveal">
+        <div class="container">
+            <h2 class="section-title">Tu proceso de atención</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Cita</h4>
+                    <p>Reserva fácilmente online.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Diagnóstico</h4>
+                    <p>Evaluación detallada.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Tratamiento</h4>
+                    <p>Tecnología de punta.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Seguimiento</h4>
+                    <p>Acompañamiento total.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonios" class="section-padding reveal" style="background: var(--beige);">
+        <div class="container">
+            <h2 class="section-title">Lo que dicen nuestros pacientes</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial-track" id="track">
+                    <div class="testimonial-item">
+                        <img src="https://i.pravatar.cc/150?u=1" alt="Paciente" class="testimonial-img">
+                        <p>"Excelente trato. Con las plantillas mi vida cambió totalmente."</p>
+                        <h4>- Carlos Mendoza</h4>
+                    </div>
+                    <div class="testimonial-item">
+                        <img src="https://i.pravatar.cc/150?u=2" alt="Paciente" class="testimonial-img">
+                        <p>"El tratamiento láser fue rápido y sin dolor. Muy limpio."</p>
+                        <h4>- Lucía García</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="section-padding reveal">
+        <div class="container">
+            <h2 class="section-title">Agenda tu consulta</h2>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Ubicación y Horarios</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Bienestar 123, Ciudad Salud</p>
+                    <p><i class="fas fa-phone"></i> +34 900 123 456</p>
+                    <div class="map-container" style="margin-top: 20px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15050.0!2d-99.0!3d19.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2smx!4v123456789" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="appointmentForm">
+                        <div class="form-group"><input type="text" id="name" placeholder="Nombre completo" required></div>
+                        <div class="form-group"><input type="email" id="email" placeholder="Correo electrónico" required></div>
+                        <div class="form-group"><input type="tel" id="phone" placeholder="Teléfono" required></div>
+                        <div class="form-group"><input type="date" id="date" required></div>
+                        <div class="form-group"><textarea id="message" rows="4" placeholder="Motivo de consulta"></textarea></div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
+                    </form>
+                    <div id="formSuccess" style="display:none; color: var(--verde-suave); margin-top: 15px; text-align: center;">
+                        <i class="fas fa-check-circle"></i> ¡Enviado con éxito!
+                    </div>
                 </div>
             </div>
         </div>
