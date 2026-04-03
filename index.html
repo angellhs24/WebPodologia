@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Podología Profesional | Elite Foot Care</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,40 +13,33 @@
     <div class="modal-overlay" id="modalCita">
         <div class="modal-content">
             <i class="fas fa-times close-modal" id="closeModal"></i>
-            <h2>Reserva tu Experiencia</h2>
-            <p class="modal-subtitle">Completa los datos y nuestro equipo te confirmará en menos de 2 horas.</p>
-            
+            <h2>Agendar Cita</h2>
+            <p class="modal-subtitle">Atención personalizada en segundos.</p>
             <form id="premiumForm">
                 <div class="form-group">
-                    <label>Nombre Completo</label>
-                    <input type="text" placeholder="Ej. Juan Pérez" required>
+                    <label>Nombre</label>
+                    <input type="text" placeholder="Tu nombre" required>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label>Teléfono</label>
-                        <input type="tel" placeholder="55 1234 5678" required>
+                        <input type="tel" placeholder="Teléfono" required>
                     </div>
                     <div class="form-group">
                         <label>Servicio</label>
                         <select>
-                            <option>Quiropodía Elite</option>
-                            <option>Estudio de la Pisada</option>
-                            <option>Láser Onicomicosis</option>
-                            <option>Pie Diabético</option>
+                            <option>Quiropodía</option>
+                            <option>Estudio de Pisada</option>
+                            <option>Láser</option>
                         </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label>Fecha Preferente</label>
-                    <input type="date" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Confirmar Solicitud</button>
+                <button type="submit" class="btn btn-primary btn-block">Enviar Solicitud</button>
             </form>
-
             <div id="successMsg" class="success-container">
                 <i class="fas fa-check-circle"></i>
-                <h3>¡Solicitud Recibida!</h3>
-                <p>Pronto caminaremos juntos hacia tu bienestar.</p>
+                <h3>¡Listo!</h3>
+                <p>Te contactaremos pronto.</p>
             </div>
         </div>
     </div>
@@ -56,11 +47,15 @@
     <header id="main-nav">
         <div class="nav-container">
             <a href="#" class="logo">PODOLOGÍA<span>PROFESIONAL</span></a>
-            <ul class="nav-links">
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul class="nav-links" id="nav-list">
                 <li><a href="#hero">Inicio</a></li>
                 <li><a href="#nosotros">Historia</a></li>
                 <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#proceso">Método</a></li>
                 <li><button class="btn btn-primary btn-nav" id="openModal">Agendar</button></li>
             </ul>
         </div>
@@ -69,138 +64,61 @@
     <section id="hero">
         <div class="hero-box reveal">
             <h1>El arte de caminar con ligereza</h1>
-            <p>Más que un tratamiento médico, una renovación total para el motor de tu cuerpo.</p>
+            <p>Renovación total para el motor de tu cuerpo.</p>
             <div class="hero-actions">
-                <button class="btn btn-primary" onclick="openModalFn()">Reservar ahora</button>
-                <a href="#servicios" class="btn btn-ghost">Ver Servicios</a>
+                <button class="btn btn-primary" onclick="openModalFn()">Reservar</button>
+                <a href="#servicios" class="btn btn-ghost">Servicios</a>
             </div>
         </div>
     </section>
 
     <section id="nosotros" class="section-padding">
-        <div class="nav-container">
+        <div class="container">
             <div class="about-grid">
                 <div class="about-image reveal">
                     <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80" alt="Clinica">
                     <div class="experience-badge">
                         <span>15+</span>
-                        <p>Años de Excelencia</p>
+                        <p>Años</p>
                     </div>
                 </div>
                 <div class="about-text reveal">
-                    <h2>Cuidamos tu caminar desde hace más de una década</h2>
-                    <p>En Podología Profesional, entendemos que tus pies son el motor de tu día a día. Nuestro equipo combina la precisión clínica con un entorno de relajación absoluta.</p>
-                    <p class="quote">“La salud comienza desde la base, y nosotros perfeccionamos esa base.”</p>
-                    <a href="#servicios" class="btn btn-outline">Nuestra Metodología</a>
+                    <h2>15 años cuidando tu salud</h2>
+                    <p>En Podología Profesional, combinamos precisión clínica con un entorno de relajación absoluta.</p>
+                    <p class="quote">“La salud comienza desde la base.”</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="servicios" class="section-padding light-bg">
-        <div class="nav-container">
+        <div class="container">
             <div class="section-header reveal">
-                <h2>Servicios Especializados</h2>
+                <h2>Servicios</h2>
                 <div class="underline"></div>
             </div>
-            
             <div class="services-grid">
-                <div class="service-card reveal">
-                    <i class="fas fa-foot"></i>
-                    <h3>Quiropodía Elite</h3>
-                    <p>Eliminación profunda de durezas y tratamiento de uñas con acabado estético y médico.</p>
-                </div>
-                <div class="service-card reveal">
-                    <i class="fas fa-running"></i>
-                    <h3>Biomecánica Deportiva</h3>
-                    <p>Análisis digital de la pisada para optimizar el rendimiento y prevenir lesiones.</p>
-                </div>
-                <div class="service-card reveal">
-                    <i class="fas fa-bolt"></i>
-                    <h3>Láser Avanzado</h3>
-                    <p>Tratamiento indoloro para onicomicosis con tecnología de última generación.</p>
-                </div>
-                <div class="service-card reveal">
-                    <i class="fas fa-heartbeat"></i>
-                    <h3>Pie Diabético</h3>
-                    <p>Atención preventiva rigurosa para pacientes con riesgos específicos.</p>
-                </div>
-                <div class="service-card reveal">
-                    <i class="fas fa-baby"></i>
-                    <h3>Podología Infantil</h3>
-                    <p>Corrección temprana de la marcha para un crecimiento saludable en niños.</p>
-                </div>
-                <div class="service-card reveal">
-                    <i class="fas fa-microscope"></i>
-                    <h3>Cirugía Ungueal</h3>
-                    <p>Soluciones definitivas para uñas encarnadas con técnicas de mínima invasión.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="proceso" class="section-padding">
-        <div class="nav-container">
-            <div class="section-header reveal">
-                <h2>Tu Camino a la Recuperación</h2>
-            </div>
-            <div class="process-row">
-                <div class="process-item reveal">
-                    <div class="process-step">01</div>
-                    <h4>Recepción</h4>
-                    <p>Ambiente de spa y diagnóstico inicial.</p>
-                </div>
-                <div class="process-item reveal">
-                    <div class="process-step">02</div>
-                    <h4>Análisis</h4>
-                    <p>Evaluación con tecnología digital.</p>
-                </div>
-                <div class="process-item reveal">
-                    <div class="process-step">03</div>
-                    <h4>Tratamiento</h4>
-                    <p>Procedimientos precisos y sin dolor.</p>
-                </div>
-                <div class="process-item reveal">
-                    <div class="process-step">04</div>
-                    <h4>Bienestar</h4>
-                    <p>Seguimiento hasta tu recuperación total.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="testimonios" class="section-padding dark-bg">
-        <div class="nav-container reveal">
-            <h2 class="section-title white">Voces de Bienestar</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/100?u=a" alt="Paciente">
-                    <p>"La atención es de otro nivel. Las plantillas personalizadas cambiaron mi vida."</p>
-                    <h5>– Carlos Mendoza</h5>
-                </div>
-                <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/100?u=b" alt="Paciente">
-                    <p>"Increíble el tratamiento láser. Limpieza absoluta y un trato muy profesional."</p>
-                    <h5>– Lucía García</h5>
-                </div>
+                <div class="service-card reveal"><i class="fas fa-foot"></i><h3>Quiropodía</h3><p>Eliminación de durezas y callosidades.</p></div>
+                <div class="service-card reveal"><i class="fas fa-running"></i><h3>Biomecánica</h3><p>Análisis digital de la pisada.</p></div>
+                <div class="service-card reveal"><i class="fas fa-bolt"></i><h3>Láser</h3><p>Tratamiento avanzado de hongos.</p></div>
+                <div class="service-card reveal"><i class="fas fa-heartbeat"></i><h3>Pie Diabético</h3><p>Cuidado preventivo especializado.</p></div>
+                <div class="service-card reveal"><i class="fas fa-baby"></i><h3>Infantil</h3><p>Corrección temprana de marcha.</p></div>
+                <div class="service-card reveal"><i class="fas fa-microscope"></i><h3>Cirugía</h3><p>Mínima invasión ungueal.</p></div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="nav-container">
+        <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#" class="logo">PODOLOGÍA<span>PROFESIONAL</span></a>
-                    <p>Redefiniendo el cuidado de tus pies con excelencia.</p>
                 </div>
                 <div class="footer-contact">
-                    <h4>Contacto</h4>
-                    <p>Av. Bienestar 123, Ciudad Salud</p>
-                    <p>+34 900 123 456</p>
+                    <p>Av. Bienestar 123 | +34 900 123 456</p>
                 </div>
             </div>
-            <p class="copy">© 2026 Podología Profesional Elite. Todos los derechos reservados.</p>
+            <p class="copy">© 2026 Podología Profesional Elite.</p>
         </div>
     </footer>
 
