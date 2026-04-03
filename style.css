@@ -103,3 +103,74 @@ footer { background: var(--light); padding: 80px 0 40px; }
 /* MENSAJE ÉXITO */
 .success-container { display: none; text-align: center; padding: 20px; }
 .success-container i { font-size: 4rem; color: var(--primary); margin-bottom: 15px; }
+
+/* --- OPTIMIZACIÓN MÓVIL --- */
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .hero-box h1 {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes de Espaciado General */
+    .section-padding { padding: 60px 0; }
+    
+    /* Navbar móvil */
+    .nav-links { display: none; } /* Oculta links para no amontonar el logo */
+    .nav-container { padding: 0 20px; }
+    
+    /* Hero */
+    .hero-box { padding: 0 20px; }
+    .hero-box h1 { font-size: 2.2rem; }
+    .hero-box p { font-size: 1.1rem; }
+    .hero-actions { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+    .btn-ghost { margin-left: 0; width: 100%; max-width: 280px; }
+    .btn-primary { width: 100%; max-width: 280px; }
+
+    /* Servicios y Testimonios */
+    .services-grid, .testimonial-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    
+    .service-card { padding: 30px; }
+
+    /* Proceso (Pasos en vertical) */
+    .process-row {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* Modal y Formulario */
+    .modal-content {
+        padding: 30px 20px;
+        width: 85%;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr; /* Apila teléfono y servicio */
+    }
+
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+}
+
+/* Ajuste fino para pantallas muy pequeñas */
+@media (max-width: 480px) {
+    .logo { font-size: 1.2rem; }
+    .experience-badge {
+        right: 0;
+        bottom: -10px;
+        padding: 15px;
+    }
+}
