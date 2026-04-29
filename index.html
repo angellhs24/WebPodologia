@@ -8,50 +8,105 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- =================================== -->
+    <!-- NUEVO MODAL DE CITAS MULTI-PASO -->
+    <!-- =================================== -->
     <div class="modal-overlay" id="modalCita">
         <div class="modal-content">
             <i class="fas fa-times close-modal" id="closeModal"></i>
-            <h2>Reserva tu Experiencia</h2>
-            <p class="modal-subtitle">Completa los datos y nuestro equipo te confirmará en menos de 2 horas.</p>
             
-            <form id="premiumForm">
-                <div class="form-group">
-                    <label>Nombre Completo</label>
-                    <input type="text" placeholder="Ej. Juan Pérez" required>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label>Teléfono</label>
-                        <input type="tel" placeholder="55 1234 5678" required>
+            <div class="booking-wizard">
+                
+                <!-- Paso 1: Selección de Servicio -->
+                <div class="wizard-step active" id="step1">
+                    <h2>Elige tu Tratamiento</h2>
+                    <p class="modal-subtitle">Selecciona el servicio que transformará tu bienestar.</p>
+                    <div class="service-selection-grid">
+                        <div class="service-option" data-service="Quiropodía Elite">
+                            <i class="fas fa-foot"></i>
+                            <span>Quiropodía Elite</span>
+                        </div>
+                        <div class="service-option" data-service="Biomecánica Deportiva">
+                            <i class="fas fa-running"></i>
+                            <span>Biomecánica Deportiva</span>
+                        </div>
+                        <div class="service-option" data-service="Láser Avanzado">
+                            <i class="fas fa-bolt"></i>
+                            <span>Láser Avanzado</span>
+                        </div>
+                        <div class="service-option" data-service="Pie Diabético">
+                            <i class="fas fa-heartbeat"></i>
+                            <span>Pie Diabético</span>
+                        </div>
+                         <div class="service-option" data-service="Podología Infantil">
+                            <i class="fas fa-baby"></i>
+                            <span>Podología Infantil</span>
+                        </div>
+                        <div class="service-option" data-service="Cirugía Ungueal">
+                            <i class="fas fa-microscope"></i>
+                            <span>Cirugía Ungueal</span>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Servicio</label>
-                        <select>
-                            <option>Quiropodía Elite</option>
-                            <option>Estudio de la Pisada</option>
-                            <option>Láser Onicomicosis</option>
-                            <option>Pie Diabético</option>
-                        </select>
-                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Fecha Preferente</label>
-                    <input type="date" required>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Confirmar Solicitud</button>
-            </form>
 
-            <div id="successMsg" class="success-container">
-                <i class="fas fa-check-circle"></i>
-                <h3>¡Solicitud Recibida!</h3>
-                <p>Pronto caminaremos juntos hacia tu bienestar.</p>
+                <!-- Paso 2: Selección de Fecha -->
+                <div class="wizard-step" id="step2">
+                    <h2>Selecciona la Fecha</h2>
+                    <p class="modal-subtitle">Elige el día que mejor se adapte a ti.</p>
+                    <div class="form-group">
+                        <input type="date" id="citaDate" class="form-control-lg">
+                    </div>
+                    <div class="wizard-nav">
+                        <button class="btn btn-outline wizard-prev">Anterior</button>
+                        <button class="btn btn-primary wizard-next" disabled>Siguiente</button>
+                    </div>
+                </div>
+
+                <!-- Paso 3: Datos de Contacto -->
+                <div class="wizard-step" id="step3">
+                    <h2>Tus Datos de Contacto</h2>
+                    <p class="modal-subtitle">Casi listos. Solo necesitamos saber quién eres.</p>
+                    <div class="form-group">
+                        <label>Nombre Completo</label>
+                        <input type="text" id="citaName" placeholder="Ej. Ana García" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tu número de WhatsApp (10 dígitos)</label>
+                        <input type="tel" id="citaPhone" placeholder="Ej. 55 1234 5678" required>
+                    </div>
+                    <div class="wizard-nav">
+                        <button class="btn btn-outline wizard-prev">Anterior</button>
+                        <button type="submit" class="btn btn-primary" id="confirmCita">Solicitar Cita</button>
+                    </div>
+                </div>
+
+                <!-- Paso 4: Éxito y WhatsApp -->
+                <div class="wizard-step" id="step4">
+                    <div class="success-container" style="display: block;">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>¡Solicitud Recibida!</h3>
+                        <p>Tu cita para <strong id="summaryService"></strong> el <strong id="summaryDate"></strong> está pendiente de confirmación.</p>
+                        <br>
+                        <a href="#" id="whatsappBtn" target="_blank" class="btn btn-primary btn-block">
+                            <i class="fab fa-whatsapp"></i> Notificar al Podólogo
+                        </a>
+                        <p class="modal-subtitle" style="margin-top: 20px;">O si prefieres, puedes cerrar esta ventana. El podólogo te contactará para confirmar.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <!-- =================================== -->
+    <!-- FIN DEL NUEVO MODAL -->
+    <!-- =================================== -->
+
 
     <header id="main-nav">
         <div class="nav-container">
@@ -78,7 +133,7 @@
     </section>
 
     <section id="nosotros" class="section-padding">
-        <div class="nav-container">
+        <div class="container">
             <div class="about-grid">
                 <div class="about-image reveal">
                     <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&q=80" alt="Clinica">
@@ -98,7 +153,7 @@
     </section>
 
     <section id="servicios" class="section-padding light-bg">
-        <div class="nav-container">
+        <div class="container">
             <div class="section-header reveal">
                 <h2>Servicios Especializados</h2>
                 <div class="underline"></div>
@@ -140,7 +195,7 @@
     </section>
 
     <section id="proceso" class="section-padding">
-        <div class="nav-container">
+        <div class="container">
             <div class="section-header reveal">
                 <h2>Tu Camino a la Recuperación</h2>
             </div>
@@ -170,25 +225,20 @@
     </section>
 
     <section id="testimonios" class="section-padding dark-bg">
-        <div class="nav-container reveal">
+        <div class="container reveal">
             <h2 class="section-title white">Voces de Bienestar</h2>
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/100?u=a" alt="Paciente">
-                    <p>"La atención es de otro nivel. Las plantillas personalizadas cambiaron mi vida."</p>
-                    <h5>– Carlos Mendoza</h5>
+            <div class="swiper testimonial-swiper">
+                <div class="swiper-wrapper" id="testimonial-container">
+                    <!-- Los testimonios se cargarán aquí dinámicamente -->
                 </div>
-                <div class="testimonial-card">
-                    <img src="https://i.pravatar.cc/100?u=b" alt="Paciente">
-                    <p>"Increíble el tratamiento láser. Limpieza absoluta y un trato muy profesional."</p>
-                    <h5>– Lucía García</h5>
-                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="nav-container">
+        <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
                     <a href="#" class="logo">PODOLOGÍA<span>PROFESIONAL</span></a>
@@ -203,7 +253,8 @@
             <p class="copy">© 2026 Podología Profesional Elite. Todos los derechos reservados.</p>
         </div>
     </footer>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
